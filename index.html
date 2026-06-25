@@ -68,14 +68,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 8%;
+            padding: 20px 8%; /* Sedikit dikurangi padding atas-bawahnya karena ukuran logo membesar */
             /* Memberikan gradasi gelap transparan sangat tipis di atas agar teks menu putih terlihat jelas */
             background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%); 
         }
 
-        /* PERBAIKAN UTAMA: Memperbesar logo & menghilangkan background putih gambar secara ajaib */
+        /* PERBAIKAN: Ukuran logo dibuat JAUH LEBIH BESAR agar terlihat jelas dan mantap */
         .logo img {
-            height: 105px; /* Ditambah tingginya agar terlihat jauh lebih besar dan jelas */
+            height: 140px; /* Diperbesar signifikan dari 105px ke 140px */
             width: auto;
             object-fit: contain;
             display: block;
@@ -113,6 +113,7 @@
             display: flex;
             align-items: center;
             padding: 20px 8%;
+            margin-top: -40px; /* Menyeimbangkan posisi teks karena ruang header membesar akibat logo baru */
         }
 
         .hero-content {
@@ -317,9 +318,9 @@
         @media (max-width: 768px) {
             .hero-section { aspect-ratio: auto; min-height: 600px; background-size: cover; }
             header { flex-direction: column; gap: 15px; padding: 20px 15px; background: rgba(0,0,0,0.5); }
-            .logo img { height: 75px; mix-blend-mode: normal; } /* Di HP dinormalisasi kembali */
+            .logo img { height: 90px; mix-blend-mode: normal; } /* Di HP disesuaikan kembali */
             nav a { margin: 0 8px; font-size: 11px; text-shadow: none; }
-            .hero-body { padding: 30px 5%; align-items: flex-end; padding-bottom: 40px; }
+            .hero-body { padding: 30px 5%; align-items: flex-end; padding-bottom: 40px; margin-top: 0; }
             .hero-content h1 { font-size: 30px; }
             .hero-content p { font-size: 13px; }
             .btn-container { flex-direction: column; gap: 10px; }
