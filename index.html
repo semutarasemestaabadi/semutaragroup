@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT Semutara Semesta Abadi - Natural Sweeteners</title>
-    <!-- Mengambil font premium mirip di desain referensi -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -36,7 +35,7 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Navbar */
+        /* Navbar / Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -54,6 +53,11 @@
             object-fit: contain;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav a {
             text-decoration: none;
             color: var(--text-dark);
@@ -68,40 +72,62 @@
             color: var(--secondary-color);
         }
 
-        /* Hero Section */
+        /* --- Hero Section (Menggunakan Full Banner sebagai Latar Belakang) --- */
         .hero {
+            position: relative;
+            width: 100%;
+            height: 80vh; /* Mengatur tinggi banner agar proporsional */
+            min-height: 500px;
+            /* Memanggil langsung file banner produk gabungan milikmu */
+            background-image: url('IMG-20260625-WA0011.jpg'); 
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
-            padding: 60px 8%;
-            background: linear-gradient(to right, #F9F6F0 50%, #E8E2D5 100%);
-            min-height: 85vh;
+            padding: 0 8%;
+        }
+
+        /* Lapisan gelap transparan di atas banner agar teks putih sangat mudah dibaca */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.1) 100%);
+            z-index: 1;
         }
 
         .hero-content {
-            flex: 1;
-            padding-right: 40px;
+            position: relative;
+            z-index: 2; /* Menempatkan teks di atas lapisan gelap */
+            max-width: 600px;
+            color: var(--white);
         }
 
         .hero-content h1 {
             font-size: 48px;
-            color: #513829;
+            color: #F4EFE3; /* Warna krem cerah untuk judul utama */
             line-height: 1.2;
             margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
         .hero-content h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 20px;
-            color: var(--secondary-color);
+            color: var(--secondary-color); /* Warna emas premium */
             margin-bottom: 20px;
             font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .hero-content p {
             font-size: 16px;
-            color: #615E58;
-            margin-bottom: 30px;
-            max-width: 500px;
+            color: #E8E2D5;
+            margin-bottom: 35px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .btn-container {
@@ -118,6 +144,7 @@
             font-size: 14px;
             text-transform: uppercase;
             transition: all 0.3s;
+            text-align: center;
         }
 
         .btn-primary {
@@ -136,17 +163,6 @@
 
         .btn-secondary:hover {
             background-color: #bc8e45;
-        }
-
-        .hero-image {
-            flex: 1;
-            text-align: right;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
         }
 
         /* About Section */
@@ -197,7 +213,7 @@
 
         /* Products Section */
         .products-section {
-            background-color: #DFCDA6; /* Background cokelat keemasan hangat */
+            background-color: #DFCDA6; 
             padding: 80px 8%;
             text-align: center;
         }
@@ -247,7 +263,7 @@
             color: #686256;
             padding: 0 20px;
             margin-bottom: 20px;
-            height: 60px; /* Menjaga teks tetap rapi sejajar */
+            height: 60px;
         }
 
         .product-card a {
@@ -258,7 +274,7 @@
             text-transform: uppercase;
         }
 
-        /* Features/Specs Section */
+        /* Features Section */
         .features {
             display: flex;
             justify-content: space-around;
@@ -277,25 +293,22 @@
             color: #4a453c;
         }
 
-        /* Responsive untuk HP */
+        /* Responsive Mobile */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 15px; }
             nav a { margin: 0 10px; font-size: 12px; }
-            .hero { flex-direction: column; text-align: center; padding-top: 30px; }
-            .hero-content { padding-right: 0; margin-bottom: 30px; }
+            .hero { padding: 0 5%; background-position: 35% center; /* Geser background di HP agar botol tetap tampak */ }
             .hero-content h1 { font-size: 32px; }
-            .btn-container { justify-content: center; }
+            .btn-container { flex-direction: column; gap: 10px; }
             .about { flex-direction: column; gap: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navigasi -->
     <header>
         <div class="logo">
-            <!-- Menampilkan logo perusahaan -->
-            <img src="logo-semutara.png" alt="PT Semutara Semesta Abadi">
+            <img src="logo-company..png" alt="PT Semutara Semesta Abadi">
         </div>
         <nav>
             <a href="#" class="active">Home</a>
@@ -308,8 +321,9 @@
         </nav>
     </header>
 
-    <!-- Hero Section (Bagian Atas) -->
     <section class="hero">
+        <div class="hero-overlay"></div>
+        
         <div class="hero-content">
             <h1>Natural Sweeteners<br>From Indonesia</h1>
             <h3>Healthy Sweeteners for Global Markets</h3>
@@ -319,16 +333,10 @@
                 <a href="#" class="btn btn-secondary">Contact Us</a>
             </div>
         </div>
-        <div class="hero-image">
-            <!-- Caca menggunakan salah satu gambar produk kamu sebagai background utama hero -->
-            <img src="palm.jpg" alt="Natural Sweeteners Products">
-        </div>
     </section>
 
-    <!-- About Us Section -->
     <section class="about">
         <div class="about-image">
-            <!-- Menggunakan gambar petani yang kamu punya -->
             <img src="farmer.jpg" alt="Indonesian Farmers">
         </div>
         <div class="about-content">
@@ -340,13 +348,11 @@
         </div>
     </section>
 
-    <!-- Products Section -->
     <section class="products-section">
         <span class="section-tag" style="color: #6d5135;">Our Products</span>
         <h2>Natural Sweeteners, Better Choices</h2>
         
         <div class="products-grid">
-            <!-- Produk 1: Coconut Sugar -->
             <div class="product-card">
                 <img src="coconut.jpg" alt="Coconut Sugar">
                 <h3>Coconut Sugar</h3>
@@ -354,7 +360,6 @@
                 <a href="#">Learn More &rarr;</a>
             </div>
 
-            <!-- Produk 2: Palm Sugar -->
             <div class="product-card">
                 <img src="palm.jpg" alt="Palm Sugar">
                 <h3>Palm Sugar</h3>
@@ -362,7 +367,6 @@
                 <a href="#">Learn More &rarr;</a>
             </div>
 
-            <!-- Produk 3: Cassava Liquid Sugar -->
             <div class="product-card">
                 <img src="cassava.jpg" alt="Cassava Liquid Sugar">
                 <h3>Cassava Liquid Sugar</h3>
@@ -372,7 +376,6 @@
         </div>
     </section>
 
-    <!-- Bar Spesifikasi/Fitur Bawah -->
     <section class="features">
         <div class="feature-item">🌱 100% Natural Ingredients</div>
         <div class="feature-item">👥 Empowering Local Farmers & SMEs</div>
