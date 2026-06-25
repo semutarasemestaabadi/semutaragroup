@@ -3,414 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT Semutara Semesta Abadi - Natural Sweeteners</title>
+    <title>PT Semutara Semesta Abadi — Indonesian Marketing & Commodity Trading</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- UTILITY RESET --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #114232; /* Hijau tua Semutara */
-            --secondary-color: #D2A056; /* Emas hangat */
-            --bg-light: #F7F4EF; /* Krem lembut */
-            --text-dark: #2B2A27;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* --- HERO SECTION CONTAINER --- */
-        .hero-section {
-            position: relative;
-            width: 100%;
-            /* Menggunakan aspek rasio gambar asli (16:9) agar gambar tidak terpotong sama sekali */
-            aspect-ratio: 16 / 9; 
-            min-height: 550px; /* Batas minimum tinggi agar teks di HP tidak berantakan */
-            background-image: url('main-banner.jpg'); 
-            background-size: 100% 100%; /* Memaksa gambar pas penuh dari ujung ke ujung */
-            background-position: center center;
-            background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Lapisan overlay gradasi halus agar teks kontras di atas gambar produk */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.15) 100%);
-            z-index: 1;
-        }
-
-        /* --- NAVBAR DI DALAM HERO (TRANSPARAN) --- */
-        header {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%; 
-            /* Memberikan gradasi gelap transparan sangat tipis di atas agar teks menu putih terlihat jelas */
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%); 
-        }
-
-        /* PERBAIKAN: Mengatur lebar logo menjadi 200px sesuai permintaan */
-        .logo img {
-            width: 200px; /* Diubah menjadi 200px pas */
-            height: auto; /* Tinggi otomatis menyesuaikan proporsi asli logo */
-            object-fit: contain;
-            display: block;
-            /* Trik CSS untuk menyaring dan menghapus background putih pada gambar logo */
-            mix-blend-mode: multiply; 
-            filter: contrast(1.1); /* Meningkatkan kontras warna logo setelah backgroundnya hilang */
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #FFFFFF; 
-            font-weight: 600;
-            font-size: 14px;
-            margin-left: 28px;
-            text-transform: uppercase;
-            transition: all 0.3s;
-            letter-spacing: 0.5px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-        }
-
-        nav a:hover, nav a.active {
-            color: var(--secondary-color);
-        }
-
-        /* --- TEKS HERO MELAYANG --- */
-        .hero-body {
-            position: relative;
-            z-index: 5;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            padding: 20px 8%;
-            margin-top: -35px; /* Penyesuaian keseimbangan posisi teks */
-        }
-
-        .hero-content {
-            max-width: 600px;
-            color: var(--white);
-        }
-
-        .hero-content h1 {
-            font-size: 48px;
-            color: #F4EFE3;
-            line-height: 1.2;
-            margin-bottom: 12px;
-            font-weight: 700;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-        }
-
-        .hero-content h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 20px;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
-        }
-
-        .hero-content p {
-            font-size: 15px;
-            color: #E8E2D5;
-            margin-bottom: 30px;
-            max-width: 500px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
-        }
-
-        /* Tombol */
-        .btn-container {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 13px;
-            text-transform: uppercase;
-            transition: all 0.3s;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background-color: #0b2b21;
-        }
-
-        .btn-secondary {
-            background-color: var(--secondary-color);
-            color: var(--white);
-        }
-
-        .btn-secondary:hover {
-            background-color: #bc8e45;
-        }
-
-        /* --- ABOUT US SECTION --- */
-        .about {
-            display: flex;
-            align-items: center;
-            padding: 100px 8%;
-            background-color: var(--bg-light);
-            gap: 80px;
-        }
-
-        .about-image {
-            flex: 1;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
-        }
-
-        .about-content {
-            flex: 1;
-        }
-
-        .section-tag {
-            font-size: 12px;
-            text-transform: uppercase;
-            color: var(--secondary-color);
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .about-content h2 {
-            font-size: 38px;
-            color: #4A3B32;
-            margin-bottom: 25px;
-            line-height: 1.3;
-        }
-
-        .about-content p {
-            color: #615E58;
-            margin-bottom: 25px;
-            font-size: 15px;
-        }
-
-        /* --- PRODUCTS SECTION --- */
-        .products-section {
-            background-color: #DFCDA6; 
-            padding: 100px 8%;
-            text-align: center;
-        }
-
-        .products-section h2 {
-            font-size: 38px;
-            color: #3e2a1e;
-            margin-bottom: 50px;
-        }
-
-        .products-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .product-card {
-            background-color: #F4EFE3;
-            border-radius: 12px;
-            overflow: hidden;
-            width: 320px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            text-align: center;
-            padding-bottom: 25px;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-        }
-
-        .product-card h3 {
-            font-size: 22px;
-            color: #3e2a1e;
-            margin: 25px 0 10px 0;
-        }
-
-        .product-card p {
-            font-size: 14px;
-            color: #686256;
-            padding: 0 25px;
-            margin-bottom: 25px;
-            height: 65px;
-        }
-
-        .product-card a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- FEATURES BAR --- */
-        .features {
-            display: flex;
-            justify-content: space-around;
-            background-color: #F0EAD8;
-            padding: 35px 8%;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #4a453c;
-        }
-
-        /* --- RESPONSIVE MOBILE --- */
-        @media (max-width: 768px) {
-            .hero-section { aspect-ratio: auto; min-height: 600px; background-size: cover; }
-            header { flex-direction: column; gap: 15px; padding: 20px 15px; background: rgba(0,0,0,0.5); }
-            .logo img { width: 160px; mix-blend-mode: normal; } /* Penyesuaian ukuran mobile */
-            nav a { margin: 0 8px; font-size: 11px; text-shadow: none; }
-            .hero-body { padding: 30px 5%; align-items: flex-end; padding-bottom: 40px; margin-top: 0; }
-            .hero-content h1 { font-size: 30px; }
-            .hero-content p { font-size: 13px; }
-            .btn-container { flex-direction: column; gap: 10px; }
-            .btn { width: 100%; }
-            .about { flex-direction: column; padding: 60px 5%; gap: 40px; text-align: center; }
-            .products-section { padding: 60px 5%; }
-            .products-section h2 { font-size: 30px; margin-bottom: 30px; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <div class="hero-section">
+    <!-- ============================================================
+    HERO SECTION + HEADER
+    ============================================================ -->
+    <section id="hero" class="hero-section">
         <div class="hero-overlay"></div>
 
         <header>
             <div class="logo">
-                <img src="logo-company.png" alt="PT Semutara Semesta Abadi Logo">
+                <img src="images/logo-company.png" alt="PT Semutara Semesta Abadi Logo">
             </div>
+
+            <!-- Hamburger toggle (visible only on mobile) -->
+            <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+
             <nav>
-                <a href="#" class="active">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">Vision</a>
-                <a href="#">Mission</a>
-                <a href="#">Products</a>
-                <a href="#">Certifications</a>
-                <a href="#">Contact Us</a>
+                <a href="#hero" class="active" data-lang-en="Home" data-lang-id="Beranda">Home</a>
+                <a href="#about" data-lang-en="About Us" data-lang-id="Tentang Kami">About Us</a>
+                <a href="#vision" data-lang-en="Vision" data-lang-id="Visi">Vision</a>
+                <a href="#mission" data-lang-en="Mission" data-lang-id="Misi">Mission</a>
+                <a href="#products" data-lang-en="Products" data-lang-id="Produk">Products</a>
+                <a href="#contact" data-lang-en="Contact" data-lang-id="Kontak">Contact</a>
+
+                <!-- Bilingual Toggle -->
+                <div class="lang-toggle">
+                    <button data-lang="en" class="active-lang">EN</button>
+                    <button data-lang="id">ID</button>
+                </div>
             </nav>
         </header>
 
         <div class="hero-body">
             <div class="hero-content">
-                <h1>Natural Sweeteners<br>From Indonesia</h1>
-                <h3>Healthy Sweeteners for Global Markets</h3>
-                <p>We produce high-quality natural sweeteners in collaboration with local farmers and SMEs, bringing the best of Indonesia to the world.</p>
+                <h1 data-lang-en="Natural Products<br>From Indonesia" data-lang-id="Produk Alami<br>Dari Indonesia">Natural Products<br>From Indonesia</h1>
+                <h3 data-lang-en="Connecting Local Products to Global Opportunities" data-lang-id="Menghubungkan Produk Lokal ke Peluang Global">Connecting Local Products to Global Opportunities</h3>
+                <p data-lang-en="We are an Indonesian marketing and commodity trading company dedicated to connecting local products with global markets through strategic branding, market development, and sustainable distribution." data-lang-id="Kami adalah perusahaan marketing dan perdagangan komoditas Indonesia yang berdedikasi menghubungkan produk lokal dengan pasar global melalui branding strategis, pengembangan pasar, dan distribusi berkelanjutan.">We are an Indonesian marketing and commodity trading company dedicated to connecting local products with global markets through strategic branding, market development, and sustainable distribution.</p>
                 <div class="btn-container">
-                    <a href="#" class="btn btn-primary">Our Products</a>
-                    <a href="#" class="btn btn-secondary">Contact Us</a>
+                    <a href="#products" class="btn btn-primary" data-lang-en="Our Products" data-lang-id="Produk Kami">Our Products</a>
+                    <a href="#contact" class="btn btn-outline" data-lang-en="Contact Us" data-lang-id="Hubungi Kami">Contact Us</a>
                 </div>
             </div>
         </div>
-    </div>
 
-    <section class="about">
+        <!-- Scroll indicator -->
+        <div class="hero-scroll">
+            <span></span>
+            <small data-lang-en="Scroll" data-lang-id="Gulir">Scroll</small>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+    ABOUT US SECTION
+    ============================================================ -->
+    <section id="about" class="about">
         <div class="about-image">
-            <img src="farmer.jpg" alt="Indonesian Farmers">
+            <img src="images/farmer.jpg" alt="Indonesian Farmers and Producers">
         </div>
         <div class="about-content">
-            <span class="section-tag">About Us</span>
-            <h2>Bringing Nature's Goodness to the World</h2>
-            <p>PT Semutara Semesta Abadi is an Indonesian company dedicated to producing and exporting natural sweeteners such as coconut sugar, palm sugar, and cassava liquid sugar.</p>
-            <p>We empower local farmers and SMEs through sustainable practices and fair partnerships.</p>
-            <a href="#" class="btn btn-primary">Read More</a>
+            <span class="section-tag" data-lang-en="About Us" data-lang-id="Tentang Kami">About Us</span>
+            <h2 data-lang-en="Bringing Indonesia's Best to the World" data-lang-id="Membawa Produk Terbaik Indonesia ke Dunia">Bringing Indonesia's Best to the World</h2>
+            <p data-lang-en="Semutara Semesta Abadi is an Indonesian marketing and commodity trading company dedicated to connecting local products with global opportunities. We work closely with farmers, producers, and MSMEs to enhance the value of Indonesian commodities through strategic branding, market development, and sustainable distribution." data-lang-id="Semutara Semesta Abadi adalah perusahaan marketing dan perdagangan komoditas Indonesia yang berdedikasi menghubungkan produk lokal dengan peluang global. Kami bekerja erat dengan petani, produsen, dan UMKM untuk meningkatkan nilai komoditas Indonesia melalui branding strategis, pengembangan pasar, dan distribusi berkelanjutan.">Semutara Semesta Abadi is an Indonesian marketing and commodity trading company dedicated to connecting local products with global opportunities. We work closely with farmers, producers, and MSMEs to enhance the value of Indonesian commodities through strategic branding, market development, and sustainable distribution.</p>
+            <p data-lang-en="At Semutara, we believe that every local product carries a unique story and the potential to compete globally. Through collaboration, trust, and sustainable growth, we strive to create meaningful impact for communities while delivering high-quality products to customers around the world." data-lang-id="Di Semutara, kami percaya bahwa setiap produk lokal membawa cerita unik dan potensi untuk bersaing secara global. Melalui kolaborasi, kepercayaan, dan pertumbuhan berkelanjutan, kami berupaya menciptakan dampak berarti bagi komunitas sambil menghadirkan produk berkualitas tinggi kepada pelanggan di seluruh dunia.">At Semutara, we believe that every local product carries a unique story and the potential to compete globally. Through collaboration, trust, and sustainable growth, we strive to create meaningful impact for communities while delivering high-quality products to customers around the world.</p>
+            <a href="#vision" class="btn btn-primary" data-lang-en="Learn More" data-lang-id="Selengkapnya">Learn More</a>
         </div>
     </section>
 
-    <section class="products-section">
-        <span class="section-tag" style="color: #6d5135;">Our Products</span>
-        <h2>Natural Sweeteners, Better Choices</h2>
-        
+
+    <!-- ============================================================
+    VISION SECTION
+    ============================================================ -->
+    <section id="vision" class="vision">
+        <div class="vision-inner">
+            <div class="vision-text">
+                <span class="section-tag" data-lang-en="Our Vision" data-lang-id="Visi Kami">Our Vision</span>
+                <h2 data-lang-en="Looking Ahead" data-lang-id="Menatap Ke Depan">Looking Ahead</h2>
+                <p data-lang-en="To elevate Indonesian local products into the global market through sustainable growth." data-lang-id="Mengangkat produk lokal Indonesia ke pasar global melalui pertumbuhan yang berkelanjutan.">To elevate Indonesian local products into the global market through sustainable growth.</p>
+            </div>
+            <div class="vision-icon">
+                <div class="icon-circle">🌏</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+    MISSION SECTION
+    ============================================================ -->
+    <section id="mission" class="mission">
+        <span class="section-tag" data-lang-en="Our Mission" data-lang-id="Misi Kami">Our Mission</span>
+        <h2 data-lang-en="What We Strive For" data-lang-id="Apa Yang Kami Perjuangkan">What We Strive For</h2>
+
+        <div class="mission-grid">
+            <div class="mission-card animate-on-scroll">
+                <div class="card-icon">📈</div>
+                <h3 data-lang-en="Strategic Branding" data-lang-id="Branding Strategis">Strategic Branding</h3>
+                <p data-lang-en="Enhance the value of Indonesian local products through strategic branding and marketing." data-lang-id="Meningkatkan nilai produk lokal Indonesia melalui branding dan marketing yang strategis.">Enhance the value of Indonesian local products through strategic branding and marketing.</p>
+            </div>
+
+            <div class="mission-card animate-on-scroll">
+                <div class="card-icon">🤝</div>
+                <h3 data-lang-en="Market Connection" data-lang-id="Koneksi Pasar">Market Connection</h3>
+                <p data-lang-en="Connect farmers and MSMEs with national and international markets." data-lang-id="Menghubungkan petani dan UMKM dengan pasar nasional dan internasional.">Connect farmers and MSMEs with national and international markets.</p>
+            </div>
+
+            <div class="mission-card animate-on-scroll">
+                <div class="card-icon">🌱</div>
+                <h3 data-lang-en="Sustainable Ecosystem" data-lang-id="Ekosistem Berkelanjutan">Sustainable Ecosystem</h3>
+                <p data-lang-en="Build a sustainable and trusted business ecosystem." data-lang-id="Membangun ekosistem bisnis yang berkelanjutan dan terpercaya.">Build a sustainable and trusted business ecosystem.</p>
+            </div>
+
+            <div class="mission-card animate-on-scroll">
+                <div class="card-icon">🚛</div>
+                <h3 data-lang-en="Reliable Distribution" data-lang-id="Distribusi Handal">Reliable Distribution</h3>
+                <p data-lang-en="Develop reliable distribution networks and long-term partnerships." data-lang-id="Mengembangkan jaringan distribusi yang handal dan kemitraan jangka panjang.">Develop reliable distribution networks and long-term partnerships.</p>
+            </div>
+
+            <div class="mission-card animate-on-scroll">
+                <div class="card-icon">💡</div>
+                <h3 data-lang-en="Innovation & Growth" data-lang-id="Inovasi & Pertumbuhan">Innovation & Growth</h3>
+                <p data-lang-en="Promote innovation and growth in local commodity trade." data-lang-id="Mendorong inovasi dan pertumbuhan dalam perdagangan komoditas lokal.">Promote innovation and growth in local commodity trade.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+    PRODUCTS SECTION
+    ============================================================ -->
+    <section id="products" class="products-section">
+        <span class="section-tag" data-lang-en="Our Products" data-lang-id="Produk Kami">Our Products</span>
+        <h2 data-lang-en="Natural Sweeteners, Better Choices" data-lang-id="Pemanis Alami, Pilihan Lebih Baik">Natural Sweeteners, Better Choices</h2>
+
         <div class="products-grid">
             <div class="product-card">
-                <img src="coconut.jpg" alt="Coconut Sugar">
+                <img src="images/coconut.jpg" alt="Coconut Sugar">
                 <h3>Coconut Sugar</h3>
-                <p>Made from the nectar of coconut blossom. Low glycemic index with rich minerals and natural taste.</p>
-                <a href="#">Learn More &rarr;</a>
+                <p data-lang-en="Made from the nectar of coconut blossom. Low glycemic index with rich minerals and natural taste." data-lang-id="Dibuat dari nira bunga kelapa. Indeks glikemik rendah dengan mineral kaya dan rasa alami.">Made from the nectar of coconut blossom. Low glycemic index with rich minerals and natural taste.</p>
+                <a href="#contact" data-lang-en="Inquire Now &rarr;" data-lang-id="Tanyakan &rarr;">Inquire Now &rarr;</a>
             </div>
 
             <div class="product-card">
-                <img src="palm.jpg" alt="Palm Sugar">
+                <img src="images/palm.jpg" alt="Palm Sugar">
                 <h3>Palm Sugar</h3>
-                <p>Traditional Indonesian sweetener with authentic taste and aroma. Perfect for various applications.</p>
-                <a href="#">Learn More &rarr;</a>
+                <p data-lang-en="Traditional Indonesian sweetener with authentic taste and aroma. Perfect for various applications." data-lang-id="Pemanis tradisional Indonesia dengan rasa dan aroma autentik. Cocok untuk berbagai aplikasi.">Traditional Indonesian sweetener with authentic taste and aroma. Perfect for various applications.</p>
+                <a href="#contact" data-lang-en="Inquire Now &rarr;" data-lang-id="Tanyakan &rarr;">Inquire Now &rarr;</a>
             </div>
 
             <div class="product-card">
-                <img src="cassava.jpg" alt="Cassava Liquid Sugar">
+                <img src="images/cassava.jpg" alt="Cassava Liquid Sugar">
                 <h3>Cassava Liquid Sugar</h3>
-                <p>Liquid sweetener made from cassava extract. Easy to use and ideal for industrial and food applications.</p>
-                <a href="#">Learn More &rarr;</a>
+                <p data-lang-en="Liquid sweetener made from cassava extract. Easy to use and ideal for industrial and food applications." data-lang-id="Pemanis cair dari ekstrak singkong. Mudah digunakan dan ideal untuk aplikasi industri dan makanan.">Liquid sweetener made from cassava extract. Easy to use and ideal for industrial and food applications.</p>
+                <a href="#contact" data-lang-en="Inquire Now &rarr;" data-lang-id="Tanyakan &rarr;">Inquire Now &rarr;</a>
             </div>
         </div>
     </section>
 
-    <section class="features">
-        <div class="feature-item">🌱 100% Natural Ingredients</div>
-        <div class="feature-item">👥 Empowering Local Farmers & SMEs</div>
-        <div class="feature-item">🌐 Exporting to Global Markets</div>
-        <div class="feature-item">✅ Quality You Can Trust</div>
+
+    <!-- ============================================================
+    CONTACT SECTION
+    ============================================================ -->
+    <section id="contact" class="contact">
+        <span class="section-tag" data-lang-en="Get In Touch" data-lang-id="Hubungi Kami">Get In Touch</span>
+        <h2 data-lang-en="Contact Us" data-lang-id="Kontak Kami">Contact Us</h2>
+
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="contact-detail">
+                    <div class="detail-icon">&#128205;</div>
+                    <div>
+                        <h4 data-lang-en="Address" data-lang-id="Alamat">Address</h4>
+                        <p data-lang-en="Indonesia" data-lang-id="Indonesia">Indonesia</p>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="detail-icon">&#9993;</div>
+                    <div>
+                        <h4 data-lang-en="Email" data-lang-id="Email">Email</h4>
+                        <p>contact@semutaragroup.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media — berdiri sendiri -->
+            <div class="contact-social">
+                <h4 data-lang-en="Follow Us" data-lang-id="Ikuti Kami">Follow Us</h4>
+                <div class="social-standalone">
+                    <a href="https://www.instagram.com/semutarastore" target="_blank" rel="noopener" class="social-item" title="Instagram">
+                        <img src="images/instagram.png" alt="Instagram" width="28" height="28">
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@semutarastore" target="_blank" rel="noopener" class="social-item" title="TikTok">
+                        <img src="images/tiktok.png" alt="TikTok" width="28" height="28">
+                        <span>TikTok</span>
+                    </a>
+                    <a href="https://web.facebook.com/profile.php?id=61591229222437" target="_blank" rel="noopener" class="social-item" title="Facebook">
+                        <img src="images/facebook.png" alt="Facebook" width="28" height="28">
+                        <span>Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
+
+    <!-- ============================================================
+    FEATURES BAR
+    ============================================================ -->
+    <section class="features">
+        <div class="feature-item">&#127793; <span data-lang-en="100% Natural Ingredients" data-lang-id="100% Bahan Alami">100% Natural Ingredients</span></div>
+        <div class="feature-item">&#128101; <span data-lang-en="Empowering Local Farmers &amp; MSMEs" data-lang-id="Memberdayakan Petani Lokal &amp; UMKM">Empowering Local Farmers &amp; MSMEs</span></div>
+        <div class="feature-item">&#127758; <span data-lang-en="Exporting to Global Markets" data-lang-id="Ekspor ke Pasar Global">Exporting to Global Markets</span></div>
+        <div class="feature-item">&#9989; <span data-lang-en="Quality You Can Trust" data-lang-id="Kualitas Yang Dapat Dipercaya">Quality You Can Trust</span></div>
+    </section>
+
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer id="footer" class="footer">
+        <div class="footer-grid">
+            <!-- Column 1: Company -->
+            <div class="footer-col">
+                <h3>PT Semutara Semesta Abadi</h3>
+                <p data-lang-en="An Indonesian marketing and commodity trading company connecting local products to global markets through strategic branding and sustainable distribution." data-lang-id="Perusahaan marketing dan perdagangan komoditas Indonesia yang menghubungkan produk lokal ke pasar global melalui branding strategis dan distribusi berkelanjutan.">An Indonesian marketing and commodity trading company connecting local products to global markets through strategic branding and sustainable distribution.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/semutarastore" target="_blank" rel="noopener" title="Instagram"><img src="images/instagram.png" alt="Instagram" width="22" height="22"></a>
+                    <a href="https://www.tiktok.com/@semutarastore" target="_blank" rel="noopener" title="TikTok"><img src="images/tiktok.png" alt="TikTok" width="22" height="22"></a>
+                    <a href="https://web.facebook.com/profile.php?id=61591229222437" target="_blank" rel="noopener" title="Facebook"><img src="images/facebook.png" alt="Facebook" width="22" height="22"></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-col">
+                <h3 data-lang-en="Quick Links" data-lang-id="Tautan Cepat">Quick Links</h3>
+                <a href="#about" data-lang-en="About Us" data-lang-id="Tentang Kami">About Us</a>
+                <a href="#vision" data-lang-en="Our Vision" data-lang-id="Visi Kami">Our Vision</a>
+                <a href="#mission" data-lang-en="Our Mission" data-lang-id="Misi Kami">Our Mission</a>
+                <a href="#products" data-lang-en="Products" data-lang-id="Produk">Products</a>
+                <a href="#contact" data-lang-en="Contact" data-lang-id="Kontak">Contact</a>
+            </div>
+
+            <!-- Column 3: Contact Info -->
+            <div class="footer-col">
+                <h3 data-lang-en="Contact Info" data-lang-id="Info Kontak">Contact Info</h3>
+                <p>&#128205; <span data-lang-en="Indonesia" data-lang-id="Indonesia">Indonesia</span></p>
+                <p>&#9993; contact@semutaragroup.com</p>
+                <p>&#9742; +62 851-1722-3441</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 PT Semutara Semesta Abadi. <span data-lang-en="All rights reserved." data-lang-id="Seluruh hak cipta dilindungi.">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+
+    <!-- ============================================================
+    WHATSAPP FLOATING BUTTON
+    ============================================================ -->
+    <a href="https://api.whatsapp.com/send/?phone=6285117223441&amp;text=Halo+Semutara%2C+saya+tertarik+dengan+produk+gula+semut&amp;type=phone_number&amp;app_absent=0" class="wa-float" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+        <img src="images/whatsapp.png" alt="WhatsApp" width="32" height="32">
+    </a>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top" title="Back to top">&#9650;</button>
+
+    <!-- SCRIPTS -->
+    <script src="js/script.js"></script>
 </body>
 </html>
