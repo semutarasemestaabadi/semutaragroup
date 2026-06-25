@@ -35,49 +35,51 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* --- HERO SECTION CONTAINER --- */
+        /* --- HERO SECTION CONTAINER (DIUBAH AGAR GAMBAR TIDAK TERPOTONG) --- */
         .hero-section {
             position: relative;
             width: 100%;
-            min-height: 100vh;
-            /* Memperbaiki pemanggilan nama file gambar sesuai repositori GitHub kamu */
+            /* Menggunakan aspek rasio gambar asli (16:9) agar gambar tidak terpotong sama sekali */
+            aspect-ratio: 16 / 9; 
+            min-height: 550px; /* Batas minimum tinggi agar teks di HP tidak berantakan */
             background-image: url('main-banner.jpg'); 
-            background-size: cover;
+            background-size: 100% 100%; /* Memaksa gambar pas penuh dari ujung ke ujung */
             background-position: center center;
             background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
         }
 
-        /* Lapisan overlay agar teks putih & emas kontras di atas gambar produk */
+        /* Lapisan overlay gradasi halus agar teks kontras di atas gambar produk */
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.1) 100%);
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
             z-index: 1;
         }
 
-        /* --- NAVBAR DI DALAM HERO --- */
+        /* --- NAVBAR DI DALAM HERO (TRANSPARAN) --- */
         header {
             position: relative;
             z-index: 10;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background-color: rgba(255, 255, 255, 0.96);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 25px 8%;
+            /* Memberikan gradasi hitam transparan sangat tipis di atas agar teks menu putih terlihat jelas */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%); 
         }
 
-        /* PERBAIKAN: Memperbesar ukuran logo company agar lebih kelihatan proporsional */
+        /* Ukuran logo perusahaan tanpa latar belakang */
         .logo img {
-            height: 65px; /* Dinaikkan dari 45px agar terlihat jelas */
+            height: 85px; 
             width: auto;
             object-fit: contain;
             display: block;
+            filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.3));
         }
 
         nav {
@@ -87,59 +89,60 @@
 
         nav a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: #FFFFFF; 
             font-weight: 600;
             font-size: 14px;
-            margin-left: 25px;
+            margin-left: 28px;
             text-transform: uppercase;
-            transition: color 0.3s;
+            transition: all 0.3s;
             letter-spacing: 0.5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
         }
 
         nav a:hover, nav a.active {
             color: var(--secondary-color);
         }
 
-        /* --- TEKS HERO --- */
+        /* --- TEKS HERO MELAYANG --- */
         .hero-body {
             position: relative;
             z-index: 5;
             flex: 1;
             display: flex;
             align-items: center;
-            padding: 40px 8%;
+            padding: 20px 8%;
         }
 
         .hero-content {
-            max-width: 650px;
+            max-width: 600px;
             color: var(--white);
         }
 
         .hero-content h1 {
-            font-size: 52px;
+            font-size: 48px;
             color: #F4EFE3;
             line-height: 1.2;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 700;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
         }
 
         .hero-content h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 20px;
             color: var(--secondary-color);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 600;
             letter-spacing: 0.5px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
         }
 
         .hero-content p {
-            font-size: 16px;
+            font-size: 15px;
             color: #E8E2D5;
-            margin-bottom: 35px;
-            max-width: 550px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            max-width: 500px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
         }
 
         /* Tombol */
@@ -150,7 +153,7 @@
 
         .btn {
             display: inline-block;
-            padding: 14px 32px;
+            padding: 12px 28px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: 700;
@@ -310,13 +313,13 @@
 
         /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 768px) {
-            header { flex-direction: column; gap: 15px; padding: 15px; }
-            .logo img { height: 50px; }
-            nav a { margin: 0 8px; font-size: 11px; }
-            .hero-section { min-height: 90vh; }
-            .hero-body { padding: 40px 5%; align-items: flex-end; padding-bottom: 60px; }
-            .hero-content h1 { font-size: 32px; }
-            .hero-content p { font-size: 14px; }
+            .hero-section { aspect-ratio: auto; min-height: 600px; background-size: cover; }
+            header { flex-direction: column; gap: 15px; padding: 20px 15px; background: rgba(0,0,0,0.5); }
+            .logo img { height: 60px; }
+            nav a { margin: 0 8px; font-size: 11px; text-shadow: none; }
+            .hero-body { padding: 30px 5%; align-items: flex-end; padding-bottom: 40px; }
+            .hero-content h1 { font-size: 30px; }
+            .hero-content p { font-size: 13px; }
             .btn-container { flex-direction: column; gap: 10px; }
             .btn { width: 100%; }
             .about { flex-direction: column; padding: 60px 5%; gap: 40px; text-align: center; }
